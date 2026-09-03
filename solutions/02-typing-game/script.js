@@ -66,20 +66,15 @@ typedValueElement.addEventListener('input', (e) => {
 		// end of word
 		// clear the typedValueElement for the new word
 		typedValueElement.value = '';
-		// move to the next word
+		// unhighlight word, move onto next word, and highlight this one
+		quoteElement.childNodes[wordIndex].className = 'typed';
 		wordIndex++;
-		// reset the class name for all elements in quote
-		for (const wordElement of quoteElement.childNodes) {
-			wordElement.className = '';
-		}
-		// highlight the new word
 		quoteElement.childNodes[wordIndex].className = 'highlight';
 	} else if (currentWord.startsWith(typedValue)) {
 		// currently correct
-		// highlight the next word
 		typedValueElement.className = '';
 	} else {
-		// error state
+		// word currently not correct
 		typedValueElement.className = 'error';
 	}
 });
