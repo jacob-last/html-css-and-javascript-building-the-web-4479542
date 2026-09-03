@@ -1,11 +1,19 @@
-
 body {
 	font-family: helvetica, arial, sans-serif;
 }
 
 h1 {
-	color: #3a241d;
+	color: #005043;
 	text-align: center;
+}
+
+.container {
+	background-color: #430000;
+	width: 15%;
+	top: 0px;
+	position: absolute;
+	height: 100%;
+	padding: 10px;
 }
 
 #left-container {
@@ -16,19 +24,19 @@ h1 {
 	right: 0px;
 }
 
-.container {
-	background-color: #eee;
-	width: 15%;
-	top: 0px;
-	position: absolute;
-	height: 100%;
-	padding: 10px;
-}
-
 .plant-holder {
 	position: relative;
 	height: 13%;
 	left: -10px;
+}
+
+@keyframes slide-in {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
 
 .plant {
@@ -36,9 +44,25 @@ h1 {
 	max-width: 150%;
 	max-height: 150%;
 	z-index: 2;
+	animation: slide-in 1s ease-in-out;
 }
 
-.jar-walls {
+@keyframes fall-in {
+	0% {
+		transform: translateY(-2000px);
+	}
+	60% {
+		transform: translateY(0)
+	}
+	80% {
+		transform: translateY(-100px)
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.terrarium-glass {
 	height: 80%;
 	width: 60%;
 	background: #d1e1df;
@@ -48,9 +72,10 @@ h1 {
 	left: 20%;
 	opacity: 0.5;
 	z-index: 1;
+	animation: fall-in 1.5s ease-in;
 }
 
-.jar-top {
+.terrarium-lid {
 	width: 50%;
 	height: 5%;
 	background: #d1e1df;
@@ -59,9 +84,10 @@ h1 {
 	left: 25%;
 	opacity: 0.7;
 	z-index: 1;
+	animation: fall-in 2s ease-in;
 }
 
-.jar-bottom {
+.terrarium-floor {
 	width: 50%;
 	height: 1%;
 	background: #d1e1df;
@@ -69,9 +95,10 @@ h1 {
 	bottom: 0%;
 	left: 25%;
 	opacity: 0.7;
+	animation: fall-in 1s ease-in;
 }
 
-.dirt {
+.terrarium-dirt {
 	width: 60%;
 	height: 5%;
 	background: #3a241d;
@@ -81,24 +108,27 @@ h1 {
 	left: 20%;
 	opacity: 0.7;
 	z-index: -1;
+	animation: fall-in 1.5s ease-in;
 }
 
-.jar-glossy-long {
-	width: 3%;
+.glass-gloss-long {
+	width: 5%;
 	height: 20%;
 	border-radius: 2rem;
 	background: #ddfbff;
 	position: absolute;
 	bottom: 20%;
 	left: 5%;
+	animation: fall-in 1.5s ease-in;
 }
 
-.jar-glossy-short {
-	width: 3%;
-	height: 5%;
+.glass-gloss-short {
+	width: 5%;
+	height: 10%;
 	border-radius: 2rem;
 	background: #ddfbff;
 	position: absolute;
 	bottom: 45%;
 	left: 5%;
-}
+	animation: fall-in 1.5s ease-in;
+} 
